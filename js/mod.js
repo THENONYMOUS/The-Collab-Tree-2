@@ -1,13 +1,13 @@
 let modInfo = {
 	name: "The Collab Tree 2",
 	id: "fhasildbflabc-thecollabtree2-ireuhliqejb",
-	author: "Yay :P, Thenonymous, Harry (bnuy), Cookina, Kobold, Downvoid, [add more people here]",
+	author: "Yay :P, Thenonymous, Harry (bnuy), Cookina, Kobold, Downvoid, JezzaCozzie, [add more people here]",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal (0), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
