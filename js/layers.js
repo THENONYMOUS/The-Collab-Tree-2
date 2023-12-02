@@ -31,5 +31,10 @@ addLayer("p", {
         description: "Another collab tree... let's hope it doesn't fail this time. Multiply point gain by 3.14159.",
         cost: new Decimal(1)
       },
+12: {
+title: "Euler's Demise",
+description: "Multiply prestige point gain by 2.718."
+cost: new Decimal(3)
+}
     }
 })
