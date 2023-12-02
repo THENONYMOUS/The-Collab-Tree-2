@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The ??? Tree",
-	id: "mymod",
-	author: "nobody",
+	name: "The Collab Tree 2",
+	id: "fhasildbflabc-thecollabtree2-ireuhliqejb",
+	author: "Yay :P, Thenonymous, Harry (bnuy), Cookina, Kobold, Downvoid, [add more people here]",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
