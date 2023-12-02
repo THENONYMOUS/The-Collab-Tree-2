@@ -34,7 +34,7 @@ if (hasUpgrade('p', 12)) mult = mult.times(2.718)
       },
 12: {
 title: "Euler's Demise",
-description: "Multiply prestige point gain by 2.718."
+description: "Multiply prestige point gain by 2.718.",
 cost: new Decimal(3)
 }
     }
