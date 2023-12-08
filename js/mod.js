@@ -1,7 +1,7 @@
 let modInfo = {
 	name: "The Collab Tree 2",
 	id: "fhasildbflabc-thecollabtree2-ireuhliqejb",
-	author: "Yay :P, Thenonymous, Harry (bnuy), Cookina, Kobold, Downvoid, JezzaCozzie, [add more people here]",
+	author: "Yay :P, Thenonymous, Harry (bnuy), Cookina, Kobold, Downvoid, JezzaCozzie, Jakub, [add more people here]",
 	pointsName: "points",
 	modFiles: ["layers.js", "tree.js"],
 
@@ -43,7 +43,11 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-if (hasUpgrade('p', 11)) gain = gain.times(3.14159)
+	if (hasUpgrade('c', 11)) gain = gain.times(3.142)
+	gain = gain.mul(smartUpgradeEffect('c', 13))
+	gain = gain.mul(smartUpgradeEffect('c', 21))
+	if (hasUpgrade('c', 31)) gain = gain.times(9)
+	gain = gain.mul(buyableEffect('c', 11))
 	return gain
 }
 
