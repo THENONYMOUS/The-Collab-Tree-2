@@ -343,7 +343,7 @@ function gameLoop(diff) {
 		for (item in TREE_LAYERS[x]) {
 			let layer = TREE_LAYERS[x][item]
 			player[layer].resetTime += diff
-			if (tmp[layer].passiveGeneration) generatePoints(layer, diff*tmp[layer].passiveGeneration);
+			if (tmp[layer].passiveGeneration !== 0) generatePoints(layer, diff * tmp[layer].passiveGeneration);
 			if (layers[layer].update) layers[layer].update(diff);
 		}
 	}
@@ -352,7 +352,7 @@ function gameLoop(diff) {
 		for (item in OTHER_LAYERS[row]) {
 			let layer = OTHER_LAYERS[row][item]
 			player[layer].resetTime += diff
-			if (tmp[layer].passiveGeneration) generatePoints(layer, diff*tmp[layer].passiveGeneration);
+			if (tmp[layer].passiveGeneration !== 0) generatePoints(layer, diff * tmp[layer].passiveGeneration);
 			if (layers[layer].update) layers[layer].update(diff);
 		}
 	}	

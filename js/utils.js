@@ -207,7 +207,7 @@ function prestigeNotify(layer) {
 				return true
 		}
 	}
-	if (tmp[layer].autoPrestige || tmp[layer].passiveGeneration) return false
+	if (tmp[layer].autoPrestige || tmp[layer].passiveGeneration !== 0) return false
 	else if (tmp[layer].type == "static") return tmp[layer].canReset
 	else if (tmp[layer].type == "normal") return (tmp[layer].canReset && (tmp[layer].resetGain.gte(player[layer].points.div(10))))
 	else return false
