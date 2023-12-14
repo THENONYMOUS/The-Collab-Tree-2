@@ -6,4 +6,3 @@ for (file in modInfo.modFiles) {
     script.setAttribute("async", "false");
     document.head.insertBefore(script, document.getElementById("temp"));
 }
-
