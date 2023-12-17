@@ -205,22 +205,16 @@ function updateClickableTemp(layer) {
 }
 
 function setupBuyables(layer) {
-    for (id in layers[layer].buyables) {
+    for (const id in layers[layer].buyables) {
         if (isPlainObject(layers[layer].buyables[id])) {
-            let b = layers[layer].buyables[id];
-            b.actualCostFunction = b.cost;
-            b.cost = function (x) {
-                x = x === undefined ? player[this.layer].buyables[this.id] : x;
-                return layers[this.layer].buyables[this.id].actualCostFunction(
-                    x
-                );
+            const buyable = layers[layer].buyables[id];
+            const actualCostFunction = buyable.cost.bind(buyable);
+            buyable.cost = () => {
+                return actualCostFunction(getBuyableAmount(layer, id));
             };
-            b.actualEffectFunction = b.effect;
-            b.effect = function (x) {
-                x = x === undefined ? player[this.layer].buyables[this.id] : x;
-                return layers[this.layer].buyables[
-                    this.id
-                ].actualEffectFunction(x);
+            const actualEffectFunction = buyable.effect.bind(buyable);
+            buyable.effect = () => {
+                return actualEffectFunction(getBuyableAmount(layer, id));
             };
         }
     }
