@@ -207,7 +207,7 @@ addLayer("c", {
                 Effect: x${format(buyableEffect(this.layer, this.id))} points
                 `;
             },
-            cost(x) {
+            cost(x = getBuyableAmount(this.layer, this.id)) {
                 return x.pow(1.1).pow_base(3).mul(50000);
             },
             canAfford() {
@@ -219,7 +219,9 @@ addLayer("c", {
                 }
                 addBuyables(this.layer, this.id, 1);
             },
-            effect(x) {
+            effect() {
+                let x = getBuyableAmount(this.layer, this.id);
+                x = x.add(buyableEffect("f", 13));
                 return x.exp();
             },
             unlocked() {
@@ -468,7 +470,7 @@ addLayer("f", {
                 Effect: x${format(buyableEffect(this.layer, this.id))} constants
                 `;
             },
-            cost(x) {
+            cost(x = getBuyableAmount(this.layer, this.id)) {
                 return x.pow(1.3).pow_base(25).mul("1e15");
             },
             canAfford() {
@@ -478,8 +480,10 @@ addLayer("f", {
                 player.c.points = player.c.points.sub(this.cost()).max(0);
                 addBuyables(this.layer, this.id, 1);
             },
-            effect(x) {
-                return x.pow_base(player.f.loops.max(0).root(2).add(2));
+            effect() {
+                return getBuyableAmount(this.layer, this.id).pow_base(
+                    player.f.loops.max(0).root(2).add(2)
+                );
             },
             unlocked() {
                 return (
@@ -504,7 +508,7 @@ addLayer("f", {
                 Effect: x${format(buyableEffect(this.layer, this.id))} points
                 `;
             },
-            cost(x) {
+            cost(x = getBuyableAmount(this.layer, this.id)) {
                 return x.pow(1.3).pow_base(25).mul("1e25");
             },
             canAfford() {
@@ -514,8 +518,10 @@ addLayer("f", {
                 player.c.points = player.c.points.sub(this.cost()).max(0);
                 addBuyables(this.layer, this.id, 1);
             },
-            effect(x) {
-                return x.pow_base(player.points.max(0).add(1).log(10).add(1));
+            effect() {
+                return getBuyableAmount(this.layer, this.id).pow_base(
+                    player.points.max(0).add(1).log(10).add(1)
+                );
             },
             unlocked() {
                 return (
@@ -542,7 +548,7 @@ addLayer("f", {
                 )} 'Natural' levels
                 `;
             },
-            cost(x) {
+            cost(x = getBuyableAmount(this.layer, this.id)) {
                 return x.pow(1.3).pow_base(25).mul("1e35");
             },
             canAfford() {
@@ -552,8 +558,10 @@ addLayer("f", {
                 player.c.points = player.c.points.sub(this.cost()).max(0);
                 addBuyables(this.layer, this.id, 1);
             },
-            effect(x) {
-                return x.root(1.08).mul(player.f.loops.max(0).add(1).root(2));
+            effect() {
+                return getBuyableAmount(this.layer, this.id)
+                    .root(1.08)
+                    .mul(player.f.loops.max(0).add(1).root(2));
             },
             unlocked() {
                 return (
