@@ -222,8 +222,7 @@ function prestigeNotify(layer) {
             if (subtabResetNotify(layer, family, subtab)) return true;
         }
     }
-    if (tmp[layer].autoPrestige || tmp[layer].passiveGeneration !== 0)
-        return false;
+    if (tmp[layer].autoPrestige || tmp[layer].passiveGeneration) return false;
     else if (tmp[layer].type == "static") return tmp[layer].canReset;
     else if (tmp[layer].type == "normal")
         return (
