@@ -17,7 +17,7 @@ function respecBuyables(layer) {
     updateBuyableTemp(layer);
     document.activeElement.blur();
 }
-opener;
+
 function canAffordUpgrade(layer, id) {
     let upg = tmp[layer].upgrades[id];
     if (tmp[layer].deactivated) return false;
@@ -222,7 +222,8 @@ function prestigeNotify(layer) {
             if (subtabResetNotify(layer, family, subtab)) return true;
         }
     }
-    if (tmp[layer].autoPrestige || tmp[layer].passiveGeneration) return false;
+    if (tmp[layer].autoPrestige || tmp[layer].passiveGeneration !== 0)
+        return false;
     else if (tmp[layer].type == "static") return tmp[layer].canReset;
     else if (tmp[layer].type == "normal")
         return (
