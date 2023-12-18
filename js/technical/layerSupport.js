@@ -181,7 +181,6 @@ function setupLayer(layer) {
             layers[layer].showTotal = true;
     }
 
-    layers[layer].passiveGeneration ??= 0;
     if (!layers[layer].componentStyles) layers[layer].componentStyles = {};
     if (layers[layer].symbol === undefined)
         layers[layer].symbol = layer.charAt(0).toUpperCase() + layer.slice(1);
